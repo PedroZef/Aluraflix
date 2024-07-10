@@ -22,15 +22,14 @@
     --azul-escuro: #0603c4;
     --frontend: #2271d1;
     --backend: #ff1493;
-    --mobile: #f0b906;
+    --mobile: #e0f006;
   
 }
 
-body {
+body, .App {
     margin: 0;
-    padding: 0;
-    min-height: 100%;
-    min-width: 100%;
+    min-height: 385px;
+    min-width: 1480px;
     --fonte: "Roboto", sans-serif;
 }
 
