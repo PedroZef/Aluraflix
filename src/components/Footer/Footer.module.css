@@ -1,0 +1,27 @@
+.footerContainer {
+    align-items: center;
+    background-color: var(--preto);
+    position: fixed;
+    bottom: 0;
+    border-top: 3px solid var(--azul-escuro);
+    justify-content: space-between;
+    width: 100%;
+    height: 85px;
+    text-align: center;
+    z-index: 1000;
+
+}
+
+.logoF img {
+    width: 169px;
+    margin-top: 50px;
+    text-align: center;
+}
+
+.text {
+    align-items: center;
+    color: var(--mobile);
+    font-family: var(--fonte1);
+    font-size: 16px;
+    text-align: center;
+}

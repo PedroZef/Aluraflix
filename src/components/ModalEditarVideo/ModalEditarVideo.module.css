@@ -1,0 +1,59 @@
+.dialog {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 70px;
+    width: 974px;
+    height: 1140px;
+    margin: auto;
+    position: absolute;
+    z-index: 1;
+    top: 294px;
+    background: var(--dialogo);
+    padding: 150px;
+    box-sizing: border-box;
+    border: 5px solid var(--azul);
+    border-radius: 15px;
+}
+
+.dialog h1 {
+    align-self: flex-start;
+    font-family: var(--fonte1);
+    font-size: 60px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: var(--azul);
+}
+
+.dialog > form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.dialog div {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.dialogBtn button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    top: -987px;
+    left: 422px;
+}
+
+.overlay {
+    background-color: var(--overlay);
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+}

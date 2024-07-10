@@ -1,0 +1,40 @@
+* {
+    margin: 0;
+    padding: 0;
+    --fonte1: "Montserrat", sans-serif;
+    --background: linear-gradient(
+        180deg,
+        #424175 0%,
+        rgb(30, 29, 79, 0.8) 100%
+    );
+}
+
+:root {
+    --fonte: "Roboto", sans-serif;
+    --branco: #f5f5f5;
+    --gray: rgb(138, 133, 133);
+    --preto: #000;
+    --cinza-escuro: #262626;
+    --cinza: #333;
+    --dialogo: #0a2353;
+    --overlay: #0e1e3d98;
+    --azul: #2271d1;
+    --azul-escuro: #0603c4;
+    --frontend: #2271d1;
+    --backend: #ff1493;
+    --mobile: #f0b906;
+  
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+    min-width: 100%;
+    --fonte: "Roboto", sans-serif;
+}
+
+a {
+    text-decoration: none;
+    list-style: none;
+}

@@ -1,0 +1,21 @@
+.gContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.gContainer textarea {
+    max-width: 496px;
+    resize: none;
+    padding-left: 5px;
+    background-color: var(--cinza);
+    border: 1px solid var(--gray);
+    border-radius: 10px;
+    caret-color: var(--branco);
+    color: var(--gray);
+}
+
+.gContainer textarea::placeholder {
+    position: absolute;
+    font-size: 20px;
+    margin-left: 10px;
+}
