@@ -15,6 +15,7 @@ import Area from "../../components/Area"
 import CardVideo from "../../components/Area/CardVideo"
 import ModalEditarVideo from "../../components/ModalEditarVideo"
 
+
 const Inicio = () => {
     const [videos, setVideos] = useState([])
     const [frontendVideo, setFrontendVideo] = useState([])
@@ -24,15 +25,26 @@ const Inicio = () => {
 
     useEffect(() => {
         async function conectApi() {
-            const videosApi = await fetch("http://localhost:3000/videos")
-            //Para proceber as funcionalidades de Post, Delete e Put, 
-            //troque o link do fetch por "http://localhost:3000/videos" e 
-            //abra novo terminal e rode o comando "npm start" ou "json-server --watch db.json" 
+            const videosApi = await fetch(`http://localhost:3000/videos`)
+            //Para proceber as funcionalidades de Post, Delete e Put,
+            //troque o link do fetch por "http://localhost:3000/videos" e
+            //abra novo terminal e rode o comando "npm start" ou "json-server --watch db.json"
 
             const videosApiData = await videosApi.json()
             setVideos(videosApiData)
         }
         conectApi()
+    }, [])
+
+    useEffect(() => {
+        function handleResize() {
+            if (window.innerWidth < 720) {
+                setSliderPreview(1)
+            } else {
+                setSliderPreview(3)
+            }
+        }
+        window.addEventListener("resize", handleResize)
     }, [])
 
     useEffect(() => {
@@ -53,12 +65,23 @@ const Inicio = () => {
         }
     }, [videos])
 
-    const atualizarVideoDeletado = (id) => {
-        setVideos(videos.filter((video) => video.id !== id))
+    const atualizarVideoDeletado = async (id) => {
+        const response = await fetch(`http://localhost:3000/videos/${id}`, {
+            method: "DELETE",
+        })
+        const updatedVideos = await response.json()
+        setVideos(updatedVideos)
     }
 
     const atualizarAposPut = async (videoAtualizado) => {
-        const response = await fetch("http://localhost:3000/videos")
+        const response = await fetch(
+            `http://localhost:3000/videos/${videoAtualizado.id}`,
+            {
+                method: "PUT",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(videoAtualizado),
+            }
+        )
         const updatedVideos = await response.json()
         setVideos(updatedVideos)
         setVideoSelecionado(null)
@@ -83,9 +106,9 @@ const Inicio = () => {
             </Banner>
             <Area
                 titulo="FRONT END"
-                tituloColor="#6BD1FF"
-                videoBorderColor="#6BD1FF"
-                btnColor="#6BD1FF"
+                tituloColor="#2271d1"
+                videoBorderColor="#2271d1"
+                btnColor="#2271d1"
             >
                 {frontendVideo.map((video) => (
                     <CardVideo
@@ -100,9 +123,9 @@ const Inicio = () => {
             </Area>
             <Area
                 titulo="BACK END"
-                tituloColor={"#00C86F"}
-                videoBorderColor={"#00C86F"}
-                btnColor={"#00C86F"}
+                tituloColor={"#03e40e"}
+                videoBorderColor={"#03e40e"}
+                btnColor={"#03e40e"}
             >
                 {backendVideo.map((video) => (
                     <CardVideo
@@ -117,9 +140,9 @@ const Inicio = () => {
             </Area>
             <Area
                 titulo="MOBILE"
-                tituloColor={"#FFBA05"}
-                videoBorderColor={"#FFBA05"}
-                btnColor={"#FFBA05"}
+                tituloColor={"#FFBA01"}
+                videoBorderColor={"#FFBA01"}
+                btnColor={"#FFBA01"}
             >
                 {mobileVideo.map((video) => (
                     <CardVideo

@@ -1,4 +1,25 @@
 .incialBg {
     height: 100%;
-    background: var(--background);
+    background: var(--preto);
+}
+
+@media screen and (max-width: 729px) {
+    .swiper-container {
+        width: 100%;
+    }
+
+    .swiper-slide {
+        width: 100%;
+    }
+}
+
+
+@media screen and (min-width: 730px) {
+    .swiper-container {
+        width: 80%;
+    }
+
+    .swiper-slide {
+        width: 30%;
+    }
 }

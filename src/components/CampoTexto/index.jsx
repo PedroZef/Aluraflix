@@ -6,7 +6,7 @@ const CampoTexto = (props) => {
     }
 
     return (
-        <div className={styles.gContainer} style={props.withCampoTexto}>
+        <div className={styles.gContainerTexto} style={props.withCampoTexto}>
             <label style={props.estiloCorLabel}>{props.label}</label>
             <input
                 type={props.type}

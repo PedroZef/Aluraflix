@@ -5,6 +5,7 @@ import FormDescricao from "../FormDescricao"
 import ListaSuspensaArea from "../ListaSuspensaArea"
 import styles from "./ModalEditarVideo.module.css"
 import botaoFechar from "./iconeFechar.png"
+import NewVideo from "./../../pages/NewVideo/index"
 
 const ModalEditarVideo = ({ video, aoFechar, aoAtualizar }) => {
     const [tituloPut, setTituloPut] = useState("")
@@ -12,6 +13,22 @@ const ModalEditarVideo = ({ video, aoFechar, aoAtualizar }) => {
     const [descricaoPut, setDescricaoPut] = useState("")
     const [imagemPut, setImagemPut] = useState("")
     const [videoPut, setVideoPut] = useState("")
+
+    const handleSubmit = async (event) => {
+        event.preventDefault()
+        const NewVideo = { titulo, area, descricao, imagem, video }
+        const response = await fetch(
+            `http://localhost:3000/videos/${video.id}`,
+            {
+                method: "POST",
+                headers: { "Content-Type": "aplication/json" },
+                body: JSON.stringify(NewVideo),
+            }
+        )
+        const newVideoData = await response.json()
+        aoAtualizar(newVideoData)
+        aoFechar()
+    }
 
     useEffect(() => {
         if (video) {
@@ -117,7 +134,7 @@ const ModalEditarVideo = ({ video, aoFechar, aoAtualizar }) => {
             {video && (
                 <>
                     {" "}
-                    <div className={styles.overlay}></div>
+                    <div className={styles.overlay}> </div>
                     <dialog
                         open={!!video}
                         onClose={aoFechar}
@@ -133,6 +150,7 @@ const ModalEditarVideo = ({ video, aoFechar, aoAtualizar }) => {
                                 aoAlterado={(valor) => setTituloPut(valor)}
                                 estiloCorCampo={styleColorCampo}
                                 estiloCorLabel={styleLabel}
+                                className={styles.titulo}
                             />
 
                             <ListaSuspensaArea
@@ -143,15 +161,7 @@ const ModalEditarVideo = ({ video, aoFechar, aoAtualizar }) => {
                                 aoAlterado={(valor) => setAreaPut(valor)}
                                 estiloCorCampo={styleColorCampo}
                                 estiloCorLabel={styleLabel}
-                            />
-                            <CampoTexto
-                                label="Imagem"
-                                placeholder="Digite o link da imagem"
-                                valor={imagemPut}
-                                obrigatorio={true}
-                                aoAlterado={(valor) => setImagemPut(valor)}
-                                estiloCorCampo={styleColorCampo}
-                                estiloCorLabel={styleLabel}
+                                className={styles.categoria}
                             />
 
                             <CampoTexto
@@ -162,7 +172,9 @@ const ModalEditarVideo = ({ video, aoFechar, aoAtualizar }) => {
                                 aoAlterado={(valor) => setVideoPut(valor)}
                                 estiloCorCampo={styleColorCampo}
                                 estiloCorLabel={styleLabel}
+                                className={styles.video}
                             />
+
                             <FormDescricao
                                 label="Descrição"
                                 placeholder="Sobre o que é esse vídeo?"
@@ -173,23 +185,29 @@ const ModalEditarVideo = ({ video, aoFechar, aoAtualizar }) => {
                                     estiloCorCampoFormDescricao
                                 }
                                 estiloCorLabel={styleLabel}
+                                className={styles.descricao}
                             />
+
                             <div>
                                 <FormBotao
                                     styleCorBotao={styleCorBotao}
                                     estiloCorBotaoHover={styleCorBotaoHover}
                                     type="submit"
                                     nome="guardar"
+                                    className={styles.guardar}
                                 ></FormBotao>
+
                                 <FormBotao
                                     aoResetar={aoLimpar}
                                     styleCorBotao={styleCorBotao}
                                     estiloCorBotaoHover={styleCorBotaoHover}
                                     type="reset"
                                     nome="limpar"
+                                    className={styles.limpar}
                                 ></FormBotao>
                             </div>
                         </form>
+
                         <form className={styles.dialogBtn} method="dialog">
                             <button>
                                 <img

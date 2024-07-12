@@ -59,7 +59,7 @@ const NewVideo = () => {
     const categoria = ["frontend", "backend", "mobile"]
 
     return (
-        <div className={styles.gContainer}>
+        <div className={styles.gContainerVideo}>
             <section className={styles.gContainerTitulo}>
                 <h1>NOVO VÍDEO</h1>
                 <p>COMPLETE O FORMULÁRIO PARA CRIAR UM NOVO CARD DE VÍDEO</p>

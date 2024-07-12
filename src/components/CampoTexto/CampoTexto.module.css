@@ -1,29 +1,31 @@
-.gContainer {
+.gContainerTexto {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     flex-grow: 1;
 }
 
-.gContainer label {
+.gContainerTexto label {
     display: block;
 }
 
-.gContainer input {
+.gContainerTexto input {
     background-color: var(--cinza);
     border: 1px solid var(--gray);
     color: var(--gray);
     caret-color: var(--branco);
     font-size: 20px;
-    border-radius: 10px;
+    border-radius: 8px;
     /* width: 500px; */
-    height: 60px;
+    height: 40px;
     padding-left: 5px;
     position: relative;
 }
 
-.gContainer input::placeholder {
+.gContainerTexto input::placeholder {
     position: absolute;
     font-size: 20px;
     margin-left: 10px;
 }
+
+

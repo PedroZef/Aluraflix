@@ -2,7 +2,7 @@ import styles from "./ListaSuspensaArea.module.css"
 
 const ListaSuspensaArea = (props) => {
     return (
-        <div className={styles.gContainer}>
+        <div className={styles.gContainerLista}>
             <label style={props.estiloCorLabel}>{props.label}</label>
             <select
                 width={props.widthLSArea}

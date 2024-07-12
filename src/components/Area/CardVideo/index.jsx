@@ -34,7 +34,7 @@ const CardVideo = ({
     }
 
     return (
-        <div className={styles.gcontainer}>
+        <div className={styles.gcontainerCard}>
             <Link to={`video/${video.id}`}>
                 <div
                     className={styles.imgContainer}
@@ -53,6 +53,7 @@ const CardVideo = ({
                 <div
                     className={styles.btn}
                     onClick={() => excluirVideo(video.id)}
+                    style={{ backgroundColor: btnColor }}
                 >
                     <img src={excluirBtn} alt="Botão de excluir" />
                     EXCLUIR
@@ -60,6 +61,7 @@ const CardVideo = ({
                 <div
                     className={styles.btn}
                     onClick={() => rolarPraCimaESelecionarVideo(video)}
+                    style={{ backgroundColor: btnColor }}
                 >
                     <img src={editarBtn} alt="Botão de editar" />
                     EDITAR

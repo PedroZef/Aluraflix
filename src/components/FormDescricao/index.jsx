@@ -2,7 +2,7 @@ import styles from "./FormDescricao.module.css"
 
 const FormDescricao = (props) => {
     return (
-        <div className={styles.gContainer}>
+        <div className={styles.gContainerForm}>
             <label style={props.estiloCorLabel}>{props.label}</label>
             <textarea
                 rows="10"

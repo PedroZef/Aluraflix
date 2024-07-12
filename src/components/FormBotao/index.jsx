@@ -6,7 +6,7 @@ const FormBotao = (props) => {
     const handleMouseEnter = () => setIsHovered(true)
     const handleMouseLeave = () => setIsHovered(false)
 
-    const estiloHober = isHovered
+    const estiloHober =isHovered
         ? props.estiloCorBotaoHover
         : props.styleCorBotao
 

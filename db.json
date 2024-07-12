@@ -1,85 +1,76 @@
 {
-    "videos": [
-        {
-            "id": "1",
-            "area": "frontend",
-            "imagem": "https://img.youtube.com/vi/Z-N5Fr9P-GU/maxresdefault.jpg",
-            "titulo": "O que é React JS",
-            "descricao": "Afinal, o que é React JS? Neste vídeo, Vanessa Tonini e Mario Souto explicam isto para você falando sobre como esta ferramenta surgiu, para que ela serve e suas aplicações.",
-            "link": "https://www.youtube.com/embed/Z-N5Fr9P-GU"
-        },
-        {
-            "id": "2",
-            "area": "frontend",
-            "imagem": "https://i.ytimg.com/vi/KdQa4Rd6K1A/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLC52_bPMVwASWJlTsm6hwGWb2PRkw",
-            "titulo": "useState: aprenda o React Hook neste TUTORIAL | #AluraMais",
-            "descricao": "Entenda neste tutorial de Hooks React, sobre o que é o useState e porque usá-lo é importante para buscar dados, atualizar estados e renderizar a sua aplicação.",
-            "link": "https://www.youtube.com/embed/KdQa4Rd6K1A?si=BcY8YAk7_wLct8-o"
-        },
-
-        {
-            "id": "3",
-            "area": "frontend",
-            "imagem": "https://img.youtube.com/vi/jK0uiQ1ZQQQ/maxresdefault.jpg",
-            "titulo": "Ciclo de vida de componentes React.js | #AluraMais",
-            "descricao": "Aprenda o que é o ciclo de vida de um componente React.js e como usar no desenvolvimento de projetos.",
-            "link": "https://www.youtube.com/embed/jK0uiQ1ZQQQ"
-        },
-        {
-            "id": "6",
-            "area": "backend",
-            "imagem": "https://img.youtube.com/vi/3aSfKsBhU5E/maxresdefault.jpg",
-            "titulo": "O que é Node.js? | #AluraMais",
-            "descricao": "A Juliana Amoasei, Instrutora na Escola de Programação aqui na Alura, apresenta a vocês o Node.js, o ambiente de execução do Javascript.",
-            "link": "https://www.youtube.com/embed/3aSfKsBhU5E"
-        },
-        {
-            "id": "7",
-            "area": "backend",
-            "imagem": "https://i.ytimg.com/vi/LDU4BCSxPp4/hq720.jpg",
-            "titulo": "Diferença entre Back-End e Front-End com Mario Souto.",
-            "descricao": "Qual a diferença entre Back-end e Front-end? É possível se especializar nas duas áreas?",
-            "link": "https://www.youtube.com/embed/xrRy3RI3HE4?si=l2xE7BvAEkhd66eD"
-        },
-        {
-            "id": "8",
-            "area": "backend",
-            "imagem": "https://img.youtube.com/vi/Iuz_jc96bQk/hqdefault.jpg",
-            "titulo": "O que é Machine Learning? #HipstersPontoTube.",
-            "descricao": " O que é o Machine Learning ?",
-            "link": "https://www.youtube.com/embed/Iuz_jc96bQk"
-        },
-        {
-            "id": "9",
-            "area": "mobile",
-            "imagem": "https://i.ytimg.com/vi/2z6f8VN_Pro/maxresdefault.jpg",
-            "titulo": "Desmistificando Mobile- Por onde eu começo?",
-            "descricao": "A Websérie “Desmistificando o mobile” vêm aí para simplificar com exemplos práticos vários assuntos envolvendo o mundo dos aplicativos de celular e neste primeiro episódio vamos partir, literalmente, do começo, por onde começar a estudar sobre o mundo dos apps? Os instrutores da escola de mobile da Alura nos ajudam com essa tarefa",
-            "link": "https://www.youtube.com/embed/2z6f8VN_Pro?si=y_NcVYPgtYFjmjMN"
-        },
-        {
-            "id": "10",
-            "area": "mobile",
-            "imagem": "https://i.ytimg.com/vi/fWscDFHKgw8/maxresdefault.jpg",
-            "titulo": "Desenvolvimento Android #HipstersPontoTube",
-            "descricao": "Um episódio focado no desenvolvimento de aplicações Android. Neste bate-papo, Paulo Silveira e Felipe Torres conversam sobre os primeiros passos para começar a desenvolver e como colocar sua aplicação no ar!",
-            "link": "https://https://www.youtube.com/embed/fWscDFHKgw8?si=MF0QMyD7OAG8mZUK"
-        },
-        {
-            "id": "11",
-            "area": "mobile",
-            "imagem": "https://i.ytimg.com/vi/So5C-XSfGW0/maxresdefault.jpg",
-            "titulo": "O que é Flutter? #HipstersPontoTube",
-            "descricao": "O que é Flutter? Quais ferramentas usar para começar a desenvolver seu aplicativo mobile pra Android ou iOS? Como desenvolver ao mesmo tempo para diferentes plataformas?.",
-            "link": "https://www.youtube.com/embed/So5C-XSfGW0?si=pSNjDmrCIjYq_Djf"
-        },
-        {
-            "id": "13",
-            "area": "mobile",
-            "imagem": "https://i.ytimg.com/vi/4AH9H_dx_7g/maxresdefault.jpg",
-            "titulo": "Desenvolvimento iOS com Giovanna Moeller | #HipstersPontoTube",
-            "descricao": "Quais os próximos passos? Quais os padrões de projeto? A Giovanna Moeller conta sua experiência para o Mario Souto em um bate papo super legal sobre seu desenvolvimento na área de mobile e iOS",
-            "link": "https://www.youtube.com/embed/4AH9H_dx_7g?si=6plWAUPN_GfcIKLq"
-        }
-    ]
+  "videos": [
+    {
+      "area": "frontend",
+      "imagem": "https://img.youtube.com/vi/Z-N5Fr9P-GU/maxresdefault.jpg",
+      "titulo": "O que é React JS",
+      "descricao": "Afinal, o que é React JS? Neste vídeo, Vanessa Tonini e Mario Souto explicam isto para você falando sobre como esta ferramenta surgiu, para que ela serve e suas aplicações.",
+      "link": "https://www.youtube.com/embed/Z-N5Fr9P-GU",
+      "id": "1"
+    },
+    {
+      "id": "2",
+      "area": "frontend",
+      "imagem": "https://i.ytimg.com/vi/KdQa4Rd6K1A/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLC52_bPMVwASWJlTsm6hwGWb2PRkw",
+      "titulo": "useState: aprenda o React Hook neste TUTORIAL | #AluraMais",
+      "descricao": "Entenda neste tutorial de Hooks React, sobre o que é o useState e porque usá-lo é importante para buscar dados, atualizar estados e renderizar a sua aplicação.",
+      "link": "https://www.youtube.com/embed/KdQa4Rd6K1A?si=BcY8YAk7_wLct8-o"
+    },
+    {
+      "id": "3",
+      "area": "frontend",
+      "imagem": "https://img.youtube.com/vi/jK0uiQ1ZQQQ/maxresdefault.jpg",
+      "titulo": "Ciclo de vida de componentes React.js | #AluraMais",
+      "descricao": "Aprenda o que é o ciclo de vida de um componente React.js e como usar no desenvolvimento de projetos.",
+      "link": "https://www.youtube.com/embed/jK0uiQ1ZQQQ"
+    },
+    {
+      "area": "backend",
+      "imagem": "https://img.youtube.com/vi/3aSfKsBhU5E/maxresdefault.jpg",
+      "titulo": "O que é Node.js? | #AluraMais",
+      "descricao": "A Juliana Amoasei, Instrutora na Escola de Programação aqui na Alura, apresenta a vocês o Node.js, o ambiente de execução do Javascript.",
+      "link": "https://www.youtube.com/embed/3aSfKsBhU5E",
+      "id": "6"
+    },
+    {
+      "id": "7",
+      "area": "backend",
+      "imagem": "https://i.ytimg.com/vi/LDU4BCSxPp4/hq720.jpg",
+      "titulo": "Diferença entre Back-End e Front-End com Mario Souto.",
+      "descricao": "Qual a diferença entre Back-end e Front-end? É possível se especializar nas duas áreas?",
+      "link": "https://www.youtube.com/embed/xrRy3RI3HE4?si=l2xE7BvAEkhd66eD"
+    },
+    {
+      "id": "8",
+      "area": "backend",
+      "imagem": "https://img.youtube.com/vi/Iuz_jc96bQk/hqdefault.jpg",
+      "titulo": "O que é Machine Learning? #HipstersPontoTube.",
+      "descricao": " O que é o Machine Learning ?",
+      "link": "https://www.youtube.com/embed/Iuz_jc96bQk"
+    },
+    {
+      "id": "9",
+      "area": "mobile",
+      "imagem": "https://i.ytimg.com/vi/4AH9H_dx_7g/maxresdefault.jpg",
+      "titulo": "Desenvolvimento iOS com Giovanna Moeller | #HipstersPontoTube",
+      "descricao": "Quais os próximos passos? Quais os padrões de projeto? A Giovanna Moeller conta sua experiência para o Mario Souto em um bate papo super legal sobre seu desenvolvimento na área de mobile e iOS",
+      "link": "https://www.youtube.com/embed/4AH9H_dx_7g?si=6plWAUPN_GfcIKLq"
+    },
+    {
+      "id": "10",
+      "area": "mobile",
+      "imagem": "https://i.ytimg.com/vi/2z6f8VN_Pro/maxresdefault.jpg",
+      "titulo": "Desmistificando Mobile- Por onde eu começo?",
+      "descricao": "A Websérie “Desmistificando o mobile” vêm aí para simplificar com exemplos práticos vários assuntos envolvendo o mundo dos aplicativos de celular e neste primeiro episódio vamos partir, literalmente, do começo, por onde começar a estudar sobre o mundo dos apps? Os instrutores da escola de mobile da Alura nos ajudam com essa tarefa",
+      "link": "https://www.youtube.com/embed/2z6f8VN_Pro?si=y_NcVYPgtYFjmjMN"
+    },
+    {
+      "id": "11",
+      "area": "mobile",
+      "imagem": "https://i.ytimg.com/vi/MGIs7DSQ-0A/maxresdefault.jpg",
+      "titulo": "Desenvolvimento iOS pra iniciantes com Giovanna Moeller | #HipstersPontoTube",
+      "descricao": "Por onde começar em iOS? Qual linguagem é importante dominar? Quais ferramentas necessárias para mergulhar no desenvolvimento iOS?",
+      "link": "https://www.youtube.com/embed/MGIs7DSQ-0A?si=9KLf4LVMWXqG0aGc"
+    }
+  ]
 }

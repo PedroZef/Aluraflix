@@ -1,16 +1,22 @@
-.button {
-  cursor: pointer;
-  width: 180.13px;
-  height: 70px;
-  background-color: var(--cinza);
-  color: var(--branco);
-  border: 2px solid var(--branco);
-  font-size: 20px;
-  font-weight: bold;
-  text-transform: uppercase;
-  border-radius: 10px;
+button {
+    cursor: pointer;
+    width: 180.13px;
+    height: 70px;
+    background-color: var(--frontend);
+    border: var(--cinza-escuro);
+    border-radius: 10px;
+    box-shadow: 0px 0px 12px 4px var(--azul) inset;
+    color: var(--branco);
+    font-family: var(--fonte);
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 10px;
 }
 
-button:hover {
-  border: 2px solid var(--azul);
+.button:hover {
+    box-shadow: 0px 0px 12px 4px var(--azul) inset;
+    border: 2px solid var(--cinza-escuro);
+    background-color: var(--cinza);
+
 }
+

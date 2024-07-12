@@ -7,7 +7,7 @@ const Footer = () => {
     return (
         <footer className={styles.footerContainer}>
             <img src={LogoFooter} alt="Logo Footer" className={styles.logoF} />
-            <Link to={"https://github.com/PedroZef/challenge-aluraflix-T6"}>
+            <Link to={"https://github.com/PedroZef/"}>
                 <p className={styles.text}>
                     &copy; 2024 - Pedro Zeferino da Silva
                 </p>
