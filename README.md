@@ -3,18 +3,25 @@
 Simulador de streaming com vídeos do canal Alura — desafio Alura + ONE (Oracle Next Education).
 Layout de referência: `docs/Aluraflix_2026.png`. Especificação técnica: `docs/SPEC.md`.
 
+![Status](https://img.shields.io/badge/Status-Conclu%C3%ADdo-brightgreen?style=for-the-badge)
+![Alura](https://img.shields.io/badge/Alura-Desafio%20de%20Projeto-0070BA?style=for-the-badge)
 ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
 ![JavaScript](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E)
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
 ![Node.js](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white)
+![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)
 
-## Tecnologias (versões fixadas em `package.json`)
+## Tecnologias
 
 - `react 18.3.1` + `react-dom 18.3.1`
 - `react-router-dom 6.24.1`
 - `swiper 11.1.4` (Banner de destaques)
 - `json-server 1.0.0-beta.1` (API mock com `db.json`)
 - `vite 5.3.1` + `@vitejs/plugin-react 4.3.1`
-- CSS Modules + variáveis em `src/styleGlobal.css`
+- `HTML5` + `CSS3` (CSS Modules + variáveis em `src/styleGlobal.css`)
+- `JavaScript (ES6+)` + `Node.js`
+- Deploy na `Vercel` (`vercel.json`)
 
 ## Pré-requisitos
 
@@ -71,7 +78,7 @@ yarn preview  # vite preview (serve o build)
 yarn lint     # eslint . --ext js,jsx
 ```
 
-> `yarn lint` hoje falha por config pré-existente (falta `eslint-plugin-eslint-plugin` no `package.json`). Build não é afetado.
+> `yarn lint` valida o código contra regras do ESLint e React Hooks sem avisos.
 
 ## Rotas e funcionalidades
 
@@ -128,5 +135,5 @@ db.json                  dados mock
 
 - **Home vazia / erro de fetch:** confira se `npm start` está rodando e se `VITE_API_URL` aponta para ele. Reinicie `yarn dev` após mudar `.env`.
 - **Porta 3000 ocupada:** suba o json-server em outra porta e atualize `.env` (`VITE_API_URL=http://localhost:3001`), depois reinicie o `yarn dev`.
-- **`yarn lint` com `Couldn't find eslint-plugin-eslint-plugin`:** dependência ausente no `package.json` (pré-existente). Não instalar sem aprovação — build (`yarn build`) valida o projeto.
+- **`yarn lint`:** validações do ESLint passam com `--max-warnings 0`.
 - **Vídeo não abre:** o `link` precisa ser URL de embed (`https://www.youtube.com/embed/...`).

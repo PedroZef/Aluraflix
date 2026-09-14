@@ -1,4 +1,3 @@
-import React from "react"
 import styles from "./Footer.module.css"
 import LogoFooter from "./LogoFooter.png"
 import { Link } from "react-router-dom"
@@ -9,7 +8,7 @@ const Footer = () => {
             <img src={LogoFooter} alt="Logo Footer" className={styles.logoF} />
             <Link to={"https://github.com/PedroZef/"}>
                 <p className={styles.text}>
-                    &copy; 2024 - Pedro Zeferino da Silva
+                    &copy; 2026 - Pedro Zeferino da Silva
                 </p>
             </Link>
         </footer>
