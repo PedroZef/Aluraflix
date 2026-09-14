@@ -46,6 +46,22 @@
     margin-bottom: 40px;
 }
 
+.mensagem {
+    color: var(--branco);
+    background: rgba(0, 200, 111, 0.15);
+    border: 1px solid var(--backend, #00C86F);
+    border-radius: 8px;
+    padding: 12px 16px;
+}
+
+.erro {
+    color: var(--branco);
+    background: rgba(229, 57, 53, 0.15);
+    border: 1px solid var(--erro, #E53935);
+    border-radius: 8px;
+    padding: 12px 16px;
+}
+
 .gContainerForm div {
     display: flex;
     flex-wrap: wrap;

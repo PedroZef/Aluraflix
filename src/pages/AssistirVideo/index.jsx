@@ -1,19 +1,27 @@
 import { useParams } from "react-router-dom"
 import { useEffect, useState } from "react"
 import styles from "./AssistirVideo.module.css"
+import { getVideo } from "../../lib/api"
 
 const AssistirVideo = () => {
     const { id } = useParams()
     const [assistirVideo, setAssistirVideo] = useState(null)
+    const [erro, setErro] = useState("")
 
     useEffect(() => {
-        fetch(`http://localhost:3000/videos/${id}`)
-            .then((resposta) => resposta.json())
+        getVideo(id)
             .then((dados) => {
                 setAssistirVideo(dados)
             })
-            .catch((error) => console.error("Erro ao buscar vídeo:", error))
+            .catch((error) => {
+                console.error("Erro ao buscar vídeo:", error)
+                setErro("Não foi possível carregar o vídeo. Verifique se o json-server está rodando (npm start).")
+            })
     }, [id])
+
+    if (erro) {
+        return <p className={styles.erro}>{erro}</p>
+    }
 
     return (
         <>

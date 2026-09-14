@@ -1,29 +1,32 @@
 .dialog {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
-    row-gap: 50px;
-    width: 974px;
-    height: 900px;
+    row-gap: 32px;
+    width: min(974px, 92vw);
+    max-height: 90vh;
+    overflow-y: auto;
     margin: auto;
-    position: absolute;
-    z-index: 1;
-    top: 380px;
-    background: var(--preto);
-    padding: 170px;
+    position: fixed;
+    z-index: 2;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #03122f;
+    padding: clamp(24px, 5vw, 80px);
     box-sizing: border-box;
-    border: 5px solid var(--azul);
+    border: 5px solid #2271D1;
     border-radius: 15px;
 }
 
 .dialog h1 {
     align-self: flex-start;
-    font-family: var(--fonte1);
-    font-size: 60px;
+    font-family: "Roboto", sans-serif;
+    font-size: clamp(28px, 5vw, 60px);
     font-weight: bold;
     text-transform: uppercase;
-    color: var(--azul);
+    color: #2271D1;
 }
 
 .dialog > form {
@@ -37,75 +40,19 @@
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+    gap: 16px;
 }
 
-.dialogBtn button {
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    position: relative;
-    top: -987px;
-    left: 422px;
-}
-
-.overlay {
-    background-color: var(--overlay);
-    position: fixed;
-    top: 20px;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: 1;
-}
-
-.dialog {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    row-gap: 70px;
-    width: 974px;
-    height: 1140px;
-    margin: auto;
+.dialogBtn {
     position: absolute;
-    z-index: 1;
-    top: 294px;
-    background: #03122f;
-    padding: 150px;
-    box-sizing: border-box;
-    border: 5px solid #2271D1;
-    border-radius: 15px;
-}
-
-.dialog h1 {
-    align-self: flex-start;
-    font-family: "Roboto", sans-serif;
-    font-size: 60px;
-    font-weight: bold;
-    text-transform: uppercase;
-    color: #2271D1;
-}
-
-.dialog>form {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.dialog div {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
+    top: 16px;
+    right: 16px;
 }
 
 .dialogBtn button {
     background: transparent;
     border: none;
     cursor: pointer;
-    position: relative;
-    top: -987px;
-    left: 422px;
 }
 
 .overlay {
@@ -116,4 +63,10 @@
     bottom: 0;
     left: 0;
     z-index: 1;
+}
+
+@media (max-width: 768px) {
+    .dialog div {
+        flex-direction: column;
+    }
 }

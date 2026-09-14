@@ -2,6 +2,7 @@ import styles from "./CardVideo.module.css"
 import excluirBtn from "./excluir.png"
 import editarBtn from "./editar.png"
 import { Link } from "react-router-dom"
+import { deleteVideo } from "../../../lib/api"
 
 const CardVideo = ({
     video,
@@ -11,21 +12,13 @@ const CardVideo = ({
     btnColor,
 }) => {
     async function excluirVideo(id) {
-        let deleteVideo
         try {
-            deleteVideo = await fetch(`http://localhost:3000/videos/${id}`, {
-                method: "DELETE",
-                headers: {
-                    "Content-type": "application/json",
-                },
-            })
-            aoDeletar(id)
-            // alert('Vídeo excluído com sucesso!')
+            await deleteVideo(id)
+            await aoDeletar(id)
         } catch (error) {
-            alert("Erro ao excluir produto")
+            console.error(error)
+            alert("Erro ao excluir vídeo")
         }
-
-        return deleteVideo
     }
 
     const rolarPraCimaESelecionarVideo = (video) => {
@@ -35,7 +28,7 @@ const CardVideo = ({
 
     return (
         <div className={styles.gcontainerCard}>
-            <Link to={`video/${video.id}`}>
+            <Link to={`/video/${video.id}`}>
                 <div
                     className={styles.imgContainer}
                     style={{

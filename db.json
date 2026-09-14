@@ -57,20 +57,12 @@
       "link": "https://www.youtube.com/embed/4AH9H_dx_7g?si=6plWAUPN_GfcIKLq"
     },
     {
-      "id": "10",
       "area": "mobile",
       "imagem": "https://i.ytimg.com/vi/2z6f8VN_Pro/maxresdefault.jpg",
       "titulo": "Desmistificando Mobile- Por onde eu começo?",
       "descricao": "A Websérie “Desmistificando o mobile” vêm aí para simplificar com exemplos práticos vários assuntos envolvendo o mundo dos aplicativos de celular e neste primeiro episódio vamos partir, literalmente, do começo, por onde começar a estudar sobre o mundo dos apps? Os instrutores da escola de mobile da Alura nos ajudam com essa tarefa",
-      "link": "https://www.youtube.com/embed/2z6f8VN_Pro?si=y_NcVYPgtYFjmjMN"
-    },
-    {
-      "id": "11",
-      "area": "mobile",
-      "imagem": "https://i.ytimg.com/vi/MGIs7DSQ-0A/maxresdefault.jpg",
-      "titulo": "Desenvolvimento iOS pra iniciantes com Giovanna Moeller | #HipstersPontoTube",
-      "descricao": "Por onde começar em iOS? Qual linguagem é importante dominar? Quais ferramentas necessárias para mergulhar no desenvolvimento iOS?",
-      "link": "https://www.youtube.com/embed/MGIs7DSQ-0A?si=9KLf4LVMWXqG0aGc"
+      "link": "https://www.youtube.com/embed/2z6f8VN_Pro?si=y_NcVYPgtYFjmjMN",
+      "id": "10"
     }
   ]
 }

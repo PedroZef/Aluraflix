@@ -5,7 +5,6 @@ import FormDescricao from "../FormDescricao"
 import ListaSuspensaArea from "../ListaSuspensaArea"
 import styles from "./ModalEditarVideo.module.css"
 import botaoFechar from "./iconeFechar.png"
-import NewVideo from "./../../pages/NewVideo/index"
 
 const ModalEditarVideo = ({ video, aoFechar, aoAtualizar }) => {
     const [tituloPut, setTituloPut] = useState("")
@@ -14,31 +13,24 @@ const ModalEditarVideo = ({ video, aoFechar, aoAtualizar }) => {
     const [imagemPut, setImagemPut] = useState("")
     const [videoPut, setVideoPut] = useState("")
 
-    const handleSubmit = async (event) => {
-        event.preventDefault()
-        const NewVideo = { titulo, area, descricao, imagem, video }
-        const response = await fetch(
-            `http://localhost:3000/videos/${video.id}`,
-            {
-                method: "POST",
-                headers: { "Content-Type": "aplication/json" },
-                body: JSON.stringify(NewVideo),
-            }
-        )
-        const newVideoData = await response.json()
-        aoAtualizar(newVideoData)
-        aoFechar()
-    }
-
     useEffect(() => {
         if (video) {
-            setTituloPut(video.titulo)
-            setAreaPut(video.area)
-            setDescricaoPut(video.descricao)
-            setImagemPut(video.imagem)
-            setVideoPut(video.link)
+            setTituloPut(video.titulo || "")
+            setAreaPut(video.area || "")
+            setDescricaoPut(video.descricao || "")
+            setImagemPut(video.imagem || "")
+            setVideoPut(video.link || "")
         }
     }, [video])
+
+    useEffect(() => {
+        if (!video) return
+        const fecharComEsc = (evento) => {
+            if (evento.key === "Escape") aoFechar()
+        }
+        window.addEventListener("keydown", fecharComEsc)
+        return () => window.removeEventListener("keydown", fecharComEsc)
+    }, [video, aoFechar])
 
     const categoria = ["frontend", "backend", "mobile"]
 
@@ -72,53 +64,17 @@ const ModalEditarVideo = ({ video, aoFechar, aoAtualizar }) => {
         ...styleWidthFormDescricao,
     }
 
-    async function atualizarVideoPut(
-        id,
-        area,
-        imagem,
-        titulo,
-        descricao,
-        link
-    ) {
-        let videoPutApi
-        videoPutApi = await fetch(`http://localhost:3000/videos/${id}`, {
-            method: "PUT",
-            headers: {
-                "Content-type": "application/json",
-            },
-            body: JSON.stringify({
-                area: area,
-                imagem: imagem,
-                titulo: titulo,
-                descricao: descricao,
-                link: link,
-            }),
-        })
-        if (!videoPutApi.ok) {
-            throw new Error("Não foi possível atualizar o card vídeo")
-        }
-
-        const videoPutApiConvertido = await videoPutApi.json()
-        return videoPutApiConvertido
-    }
-
     const aoSalvar = async (evento) => {
         evento.preventDefault()
-        const videoAtualizado = await atualizarVideoPut(
-            video.id,
-            areaPut,
-            imagemPut,
-            tituloPut,
-            descricaoPut,
-            videoPut
-        )
-        setAreaPut("")
-        setImagemPut("")
-        setTituloPut("")
-        setDescricaoPut("")
-        setVideoPut("")
-        aoAtualizar(videoAtualizado)
-        alert("Video salvo com sucesso")
+        if (!video) return
+        await aoAtualizar({
+            id: video.id,
+            area: areaPut,
+            imagem: imagemPut,
+            titulo: tituloPut,
+            descricao: descricaoPut,
+            link: videoPut,
+        })
     }
 
     const aoLimpar = () => {
@@ -129,96 +85,100 @@ const ModalEditarVideo = ({ video, aoFechar, aoAtualizar }) => {
         setVideoPut("")
     }
 
+    if (!video) return null
+
     return (
         <>
-            {video && (
-                <>
-                    {" "}
-                    <div className={styles.overlay}> </div>
-                    <dialog
-                        open={!!video}
-                        onClose={aoFechar}
-                        className={styles.dialog}
-                    >
-                        <h1>Editar Card:</h1>
-                        <form onSubmit={aoSalvar}>
-                            <CampoTexto
-                                label="Título"
-                                placeholder="Digite um título"
-                                valor={tituloPut}
-                                obrigatorio={true}
-                                aoAlterado={(valor) => setTituloPut(valor)}
-                                estiloCorCampo={styleColorCampo}
-                                estiloCorLabel={styleLabel}
-                                className={styles.titulo}
-                            />
+            <div className={styles.overlay} onClick={aoFechar} />
+            <dialog open={!!video} onClose={aoFechar} className={styles.dialog}>
+                <h1>Editar Card:</h1>
+                <form onSubmit={aoSalvar}>
+                    <CampoTexto
+                        label="Título"
+                        placeholder="Digite um título"
+                        valor={tituloPut}
+                        obrigatorio={true}
+                        aoAlterado={(valor) => setTituloPut(valor)}
+                        estiloCorCampo={styleColorCampo}
+                        estiloCorLabel={styleLabel}
+                        className={styles.titulo}
+                    />
 
-                            <ListaSuspensaArea
-                                label="Categoria"
-                                itens={categoria}
-                                valor={areaPut}
-                                obrigatorio={true}
-                                aoAlterado={(valor) => setAreaPut(valor)}
-                                estiloCorCampo={styleColorCampo}
-                                estiloCorLabel={styleLabel}
-                                className={styles.categoria}
-                            />
+                    <ListaSuspensaArea
+                        label="Categoria"
+                        itens={categoria}
+                        valor={areaPut}
+                        obrigatorio={true}
+                        aoAlterado={(valor) => setAreaPut(valor)}
+                        estiloCorCampo={styleColorCampo}
+                        estiloCorLabel={styleLabel}
+                        className={styles.categoria}
+                    />
 
-                            <CampoTexto
-                                label="Vídeo"
-                                placeholder="Digite o link do vídeo"
-                                valor={videoPut}
-                                obrigatorio={true}
-                                aoAlterado={(valor) => setVideoPut(valor)}
-                                estiloCorCampo={styleColorCampo}
-                                estiloCorLabel={styleLabel}
-                                className={styles.video}
-                            />
+                    <CampoTexto
+                        label="Imagem"
+                        placeholder="Digite o link da imagem"
+                        valor={imagemPut}
+                        obrigatorio={true}
+                        aoAlterado={(valor) => setImagemPut(valor)}
+                        estiloCorCampo={styleColorCampo}
+                        estiloCorLabel={styleLabel}
+                        className={styles.imagem}
+                    />
 
-                            <FormDescricao
-                                label="Descrição"
-                                placeholder="Sobre o que é esse vídeo?"
-                                valor={descricaoPut}
-                                obrigatorio={true}
-                                aoAlterado={(valor) => setDescricaoPut(valor)}
-                                estiloCorCampoFormDescricao={
-                                    estiloCorCampoFormDescricao
-                                }
-                                estiloCorLabel={styleLabel}
-                                className={styles.descricao}
-                            />
+                    <CampoTexto
+                        label="Vídeo"
+                        placeholder="Digite o link do vídeo"
+                        valor={videoPut}
+                        obrigatorio={true}
+                        aoAlterado={(valor) => setVideoPut(valor)}
+                        estiloCorCampo={styleColorCampo}
+                        estiloCorLabel={styleLabel}
+                        className={styles.video}
+                    />
 
-                            <div>
-                                <FormBotao
-                                    styleCorBotao={styleCorBotao}
-                                    estiloCorBotaoHover={styleCorBotaoHover}
-                                    type="submit"
-                                    nome="guardar"
-                                    className={styles.guardar}
-                                ></FormBotao>
+                    <FormDescricao
+                        label="Descrição"
+                        placeholder="Sobre o que é esse vídeo?"
+                        valor={descricaoPut}
+                        obrigatorio={true}
+                        aoAlterado={(valor) => setDescricaoPut(valor)}
+                        estiloCorCampoFormDescricao={
+                            estiloCorCampoFormDescricao
+                        }
+                        estiloCorLabel={styleLabel}
+                        className={styles.descricao}
+                    />
 
-                                <FormBotao
-                                    aoResetar={aoLimpar}
-                                    styleCorBotao={styleCorBotao}
-                                    estiloCorBotaoHover={styleCorBotaoHover}
-                                    type="reset"
-                                    nome="limpar"
-                                    className={styles.limpar}
-                                ></FormBotao>
-                            </div>
-                        </form>
+                    <div>
+                        <FormBotao
+                            styleCorBotao={styleCorBotao}
+                            estiloCorBotaoHover={styleCorBotaoHover}
+                            type="submit"
+                            nome="guardar"
+                            className={styles.guardar}
+                        ></FormBotao>
 
-                        <form className={styles.dialogBtn} method="dialog">
-                            <button>
-                                <img
-                                    src={botaoFechar}
-                                    alt="Botão fechar do modal"
-                                />
-                            </button>
-                        </form>
-                    </dialog>
-                </>
-            )}
+                        <FormBotao
+                            aoResetar={aoLimpar}
+                            styleCorBotao={styleCorBotao}
+                            estiloCorBotaoHover={styleCorBotaoHover}
+                            type="reset"
+                            nome="limpar"
+                            className={styles.limpar}
+                        ></FormBotao>
+                    </div>
+                </form>
+
+                <form className={styles.dialogBtn} method="dialog">
+                    <button onClick={aoFechar} aria-label="Fechar modal">
+                        <img
+                            src={botaoFechar}
+                            alt="Botão fechar do modal"
+                        />
+                    </button>
+                </form>
+            </dialog>
         </>
     )
 }

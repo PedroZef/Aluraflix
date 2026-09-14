@@ -9,10 +9,15 @@ const Destaques = ({ video }) => {
         backgroundPosition: "center center",
         backgroundRepeat: "no-repeat",
         boxShadow: "inset 5px 0px 29px 0px rgba(34, 113, 209, 0.7)",
-        width: "90%",
-        height: "532px",
+        width: "100%",
+        minHeight: "532px",
         display: "flex",
         justifyContent: "space-around",
+        alignItems: "center",
+        flexWrap: "wrap",
+        gap: "24px",
+        padding: "40px 5%",
+        boxSizing: "border-box",
     };
 
     const imgStyles = {
@@ -20,15 +25,14 @@ const Destaques = ({ video }) => {
         backgroundSize: "cover",
         backgroundPosition: "center center",
         backgroundRepeat: "no-repeat",
-        width: "600px",
-        height: "333.58px",
-        marginTop: "130px",
-        marginRigth: "40px",
+        width: "min(600px, 90vw)",
+        height: "min(333.58px, 50vw)",
         boxShadow: "inset 5px 0px 29px 0px rgba(34, 113, 209, 0.7)",
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
+        borderRadius: "15px",
     };
 
     const getShadowStyle = (area) => {
@@ -76,7 +80,7 @@ const Destaques = ({ video }) => {
                 <p>{video.descricao}</p>
             </div>
 
-            <Link to={`video/${video.id}`}>
+            <Link to={`/video/${video.id}`}>
                 <div
                     style={{ ...imgStyles, ...getShadowStyle(video.area) }}
                 >

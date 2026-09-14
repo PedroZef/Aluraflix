@@ -1,5 +1,5 @@
 .banner {
   background-color: var(--preto);
-  width: 100vw;
- 
+  width: 100%;
+  min-height: 400px;
 }

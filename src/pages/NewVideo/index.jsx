@@ -1,59 +1,52 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import CampoTexto from "../../components/CampoTexto"
 import FormDescricao from "../../components/FormDescricao"
 import ListaSuspensaArea from "../../components/ListaSuspensaArea"
 import styles from "./NewVideo.module.css"
 import FormBotao from "../../components/FormBotao"
+import { createVideo } from "../../lib/api"
 
 const NewVideo = () => {
-    const [tituloPost, setTituloPost] = useState()
-    const [areaPost, setAreaPost] = useState()
-    const [imagemPost, setImagemPost] = useState()
-    const [videoPost, setVideoPost] = useState()
-    const [descricaoPost, setDescricaoPost] = useState()
-
-    async function novoVideoPost(area, imagem, titulo, descricao, link) {
-        try {
-            const videoPostApi = await fetch("http://localhost:3000/videos", {
-                method: "POST",
-                headers: {
-                    "Content-type": "application/json",
-                },
-                body: JSON.stringify({
-                    area: area,
-                    imagem: imagem,
-                    titulo: titulo,
-                    descricao: descricao,
-                    link: link,
-                }),
-            })
-
-            if (!videoPostApi.ok) {
-                throw new Error("Não foi possível adicionar novo vídeo")
-            }
-
-            const videoPostApiConvertido = await videoPostApi.json()
-            return videoPostApiConvertido
-        } catch (error) {
-            console.log(error)
-        }
-    }
+    const [tituloPost, setTituloPost] = useState("")
+    const [areaPost, setAreaPost] = useState("")
+    const [imagemPost, setImagemPost] = useState("")
+    const [videoPost, setVideoPost] = useState("")
+    const [descricaoPost, setDescricaoPost] = useState("")
+    const [mensagem, setMensagem] = useState("")
+    const [erro, setErro] = useState("")
 
     const aoGuardar = async (evento) => {
         evento.preventDefault()
-        await novoVideoPost(
-            areaPost,
-            imagemPost,
-            tituloPost,
-            descricaoPost,
-            videoPost
-        )
+        setMensagem("")
+        setErro("")
+        try {
+            await createVideo({
+                area: areaPost,
+                imagem: imagemPost,
+                titulo: tituloPost,
+                descricao: descricaoPost,
+                link: videoPost,
+            })
+            setAreaPost("")
+            setImagemPost("")
+            setTituloPost("")
+            setDescricaoPost("")
+            setVideoPost("")
+            setMensagem("Vídeo salvo com sucesso!")
+        } catch (error) {
+            console.error(error)
+            setErro("Não foi possível adicionar novo vídeo. Verifique se o json-server está rodando (npm start).")
+        }
+    }
+
+    const aoLimpar = () => {
         setAreaPost("")
         setImagemPost("")
         setTituloPost("")
         setDescricaoPost("")
         setVideoPost("")
-        alert("Video salvo com sucesso")
+        setMensagem("")
+        setErro("")
     }
 
     const categoria = ["frontend", "backend", "mobile"]
@@ -66,6 +59,8 @@ const NewVideo = () => {
             </section>
             <section className={styles.gContainerForm}>
                 <h2>Criar Card</h2>
+                {mensagem && <p className={styles.mensagem}>{mensagem}</p>}
+                {erro && <p className={styles.erro}>{erro}</p>}
                 <form onSubmit={aoGuardar}>
                     <div>
                         <CampoTexto
@@ -110,7 +105,7 @@ const NewVideo = () => {
                     />
                     <div>
                         <FormBotao type="submit" nome="guardar"></FormBotao>
-                        <FormBotao type="reset" nome="limpar"></FormBotao>
+                        <FormBotao type="reset" nome="limpar" aoResetar={aoLimpar}></FormBotao>
                     </div>
                 </form>
             </section>

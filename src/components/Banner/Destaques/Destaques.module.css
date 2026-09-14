@@ -17,10 +17,7 @@
 }
 
 .infoContainer {
-    /* max-width: 600px; */
-    max-width: 65%;
-    max-height: 333.58px;
-    margin-top: 260px;
+    max-width: min(600px, 90vw);
     color: var(--branco);
     gap: 20px;
     justify-content: center;
@@ -28,7 +25,7 @@
     z-index: 1;
     display: flex;
     flex-direction: column;
-    padding: 40px;
+    padding: 24px;
 }
 
 .infoContainer h1 {
