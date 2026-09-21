@@ -12,20 +12,25 @@
 .gContainerTexto input {
     background-color: var(--cinza);
     border: 1px solid var(--gray);
-    color: var(--gray);
-    caret-color: var(--branco);
-    font-size: 20px;
+    color: var(--branco);
+    caret-color: var(--azul);
+    font-size: 16px;
     border-radius: 8px;
-    /* width: 500px; */
-    height: 40px;
-    padding-left: 5px;
+    height: 44px;
+    padding: 0 12px;
     position: relative;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.gContainerTexto input:focus {
+    border-color: var(--azul);
+    box-shadow: 0 0 0 2px rgba(36, 165, 224, 0.3);
 }
 
 .gContainerTexto input::placeholder {
-    position: absolute;
-    font-size: 20px;
-    margin-left: 10px;
+    font-size: 16px;
+    color: var(--gray);
 }
 
 

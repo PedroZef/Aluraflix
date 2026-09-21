@@ -10,18 +10,14 @@ import "swiper/css"
 import "swiper/css/navigation"
 import "swiper/css/pagination"
 import "swiper/css/scrollbar"
-import { useEffect, useState } from "react"
+import { useEffect, useState, useMemo, useCallback } from "react"
 import Area from "../../components/Area"
 import CardVideo from "../../components/Area/CardVideo"
 import ModalEditarVideo from "../../components/ModalEditarVideo"
 import { listVideos, deleteVideo, updateVideo } from "../../lib/api"
 
-
 const Inicio = () => {
     const [videos, setVideos] = useState([])
-    const [frontendVideo, setFrontendVideo] = useState([])
-    const [backendVideo, setBackendVideo] = useState([])
-    const [mobileVideo, setMobileVideo] = useState([])
     const [videoSelecionado, setVideoSelecionado] = useState(null)
     const [carregando, setCarregando] = useState(true)
     const [erro, setErro] = useState("")
@@ -43,29 +39,20 @@ const Inicio = () => {
         conectApi()
     }, [])
 
-    useEffect(() => {
-        if (videos.length > 0) {
-            const frontendVideos = videos.filter(
-                (video) => video.area === "frontend"
-            )
-            const backendVideos = videos.filter(
-                (video) => video.area === "backend"
-            )
-            const mobileVideos = videos.filter(
-                (video) => video.area === "mobile"
-            )
+    const frontendVideo = useMemo(
+        () => videos.filter((video) => video.area === "frontend"),
+        [videos]
+    )
+    const backendVideo = useMemo(
+        () => videos.filter((video) => video.area === "backend"),
+        [videos]
+    )
+    const mobileVideo = useMemo(
+        () => videos.filter((video) => video.area === "mobile"),
+        [videos]
+    )
 
-            setFrontendVideo(frontendVideos)
-            setBackendVideo(backendVideos)
-            setMobileVideo(mobileVideos)
-        } else {
-            setFrontendVideo([])
-            setBackendVideo([])
-            setMobileVideo([])
-        }
-    }, [videos])
-
-    const removerVideo = async (id) => {
+    const removerVideo = useCallback(async (id) => {
         try {
             await deleteVideo(id)
             setVideos((prev) => prev.filter((v) => String(v.id) !== String(id)))
@@ -73,9 +60,9 @@ const Inicio = () => {
             console.error(error)
             alert("Erro ao excluir vídeo")
         }
-    }
+    }, [])
 
-    const atualizarAposPut = async (videoAtualizado) => {
+    const atualizarAposPut = useCallback(async (videoAtualizado) => {
         try {
             const salvo = await updateVideo(videoAtualizado.id, {
                 area: videoAtualizado.area,
@@ -92,7 +79,9 @@ const Inicio = () => {
             console.error(error)
             alert("Não foi possível atualizar o card vídeo")
         }
-    }
+    }, [])
+
+    const fecharModal = useCallback(() => setVideoSelecionado(null), [])
 
     return (
         <div className={styles.incialBg}>
@@ -171,7 +160,7 @@ const Inicio = () => {
             )}
             <ModalEditarVideo
                 video={videoSelecionado}
-                aoFechar={() => setVideoSelecionado(null)}
+                aoFechar={fecharModal}
                 aoAtualizar={atualizarAposPut}
             />
         </div>

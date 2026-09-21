@@ -9,7 +9,16 @@ const Header = () => {
 
     return (
         <header className={styles.header}>
-            <img className={styles.logoH} src={LogoMenu} alt="Logo" />
+            <Link to="/" aria-label="Aluraflix - Página Inicial">
+                <img
+                    className={styles.logoH}
+                    src={LogoMenu}
+                    alt="Aluraflix"
+                    width="169"
+                    height="40"
+                    decoding="async"
+                />
+            </Link>
 
             <div className={styles.linkContainer}>
                 <Link to={"/"} className={styles.headerLink}>

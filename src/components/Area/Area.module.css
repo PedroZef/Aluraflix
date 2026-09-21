@@ -16,27 +16,31 @@
   margin-right: 10px;
 } 
 */
-.areaContainer > h1 {
+.areaContainer > h1,
+.areaContainer > h2 {
     background-color: var(--azul);
     color: var(--branco);
-    width: 332px;
+    width: min(332px, 80vw);
     height: 70px;
+    font-size: 32px;
+    font-weight: bold;
+    letter-spacing: 1px;
     border-radius: 10px;
     margin-bottom: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-left: 28px;
+    margin-left: clamp(12px, 3vw, 28px);
 }
 
 .areaContainer {
     display: flex;
     flex-direction: column;
-    margin: 20px 50px 0px 50px;
+    margin: 20px clamp(16px, 4vw, 50px) 0px clamp(16px, 4vw, 50px);
 
     overflow: hidden;
     scroll-behavior: smooth;
-    max-height: 470px;
+    max-height: 480px;
 }
 
 .videoContainer {
@@ -45,13 +49,13 @@
     overflow-y: hidden;
     white-space: nowrap;
     height: 460px;
+    padding-bottom: 10px;
 }
 
 .videoContainer > div {
     flex-shrink: 0;
-  width: 330px; 
+    width: min(360px, 85vw);
     margin-right: 20px;
-    
 }
 
 .videoContainer::-webkit-scrollbar {

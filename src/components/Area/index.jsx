@@ -14,7 +14,7 @@ const Area = ({
         <>
             {childrenArray.length > 0 && (
                 <div className={styles.areaContainer}>
-                    <h1 style={{ backgroundColor: tituloColor }}>{titulo}</h1>
+                    <h2 style={{ backgroundColor: tituloColor }}>{titulo}</h2>
                     <div className={styles.videoContainer}>
                         {childrenArray.map((child) =>
                             React.cloneElement(child, {

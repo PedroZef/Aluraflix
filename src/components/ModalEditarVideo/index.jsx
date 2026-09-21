@@ -35,13 +35,14 @@ const ModalEditarVideo = ({ video, aoFechar, aoAtualizar }) => {
     const categoria = ["frontend", "backend", "mobile"]
 
     const styleLabel = {
-        color: "#fff",
+        color: "var(--branco)",
         fontSize: "20px",
     }
 
     const styleColorCampo = {
-        border: "2px solid #2271D1",
-        backgroundColor: "#03122f",
+        border: "2px solid var(--frontend-dark)",
+        backgroundColor: "var(--surface)",
+        color: "var(--branco)",
     }
 
     const styleWidthFormDescricao = {
@@ -49,14 +50,16 @@ const ModalEditarVideo = ({ video, aoFechar, aoAtualizar }) => {
     }
 
     const styleCorBotao = {
-        border: "2px solid #fff",
-        background: "#03122f",
+        border: "2px solid var(--branco)",
+        background: "var(--surface)",
+        color: "var(--branco)",
     }
 
     const styleCorBotaoHover = {
-        border: "2px solid #2271D1",
-        boxShadow: "inset 0px 0px 12px 4px #2271D1",
-        background: "#000",
+        border: "2px solid var(--frontend-dark)",
+        boxShadow: "inset 0px 0px 12px 4px var(--azul)",
+        background: "var(--preto)",
+        color: "var(--branco)",
     }
 
     const estiloCorCampoFormDescricao = {

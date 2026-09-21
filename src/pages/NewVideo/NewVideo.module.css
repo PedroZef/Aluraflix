@@ -1,6 +1,7 @@
 .gContainerVideo {
-    width: 1440px;
-    max-width: 1800px;
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
     font-family: var(--fonte);
     background: var(--overlay);
     color: var(--branco);
@@ -8,9 +9,9 @@
     flex-direction: column;
     margin-top: 50px;
     gap: 47px;
-    padding: 30px 50px;
+    padding: 30px clamp(16px, 4vw, 50px);
     padding-block-start: 10px;
-
+    box-sizing: border-box;
 }
 
 .gContainerTitulo {
@@ -21,8 +22,9 @@
 }
 
 .gContainerTitulo h1 {
-    font-size: 60px;
+    font-size: 46px;
     margin-top: 30px;
+    text-align: center;
 }
 
 .gContainerForm {
@@ -39,7 +41,7 @@
 }
 
 .gContainerForm h2 {
-    font-size: 36px;
+    font-size: 32px;
     border-top: 1px solid var(--gray);
     border-bottom: 1px solid var(--gray);
     padding: 20px 0px;
@@ -74,17 +76,17 @@
 @media (max-width: 1024px) {
     .gContainerVideo {
         display: flex;
-        padding: 20px 30px;
-        width: auto;
+        padding: 20px clamp(16px, 3vw, 30px);
+        width: 100%;
         height: auto;
     }
 
     .gContainerTitulo h1 {
-        font-size: 48px;
+        font-size: 32px;
     }
 
     .gContainerForm h2 {
-        font-size: 30px;
+        font-size: 20px;
     }
 
     .gContainerForm div {
@@ -98,17 +100,17 @@
 }
 
 @media (max-width: 768px) {
-    .gContainer {
+    .gContainerVideo {
         display: flex;
         padding: 15px 20px;
     }
 
     .gContainerTitulo h1 {
-        font-size: 36px;
+        font-size: 32px;
     }
 
     .gContainerForm h2 {
-        font-size: 24px;
+        font-size: 20px;
     }
 
     .gContainerForm div {
@@ -123,16 +125,15 @@
     }
 }
 
-
 @media (max-width: 480px) {
     .gContainerVideo {
         display: flex;
-        width: auto;
+        width: 100%;
         padding: 10px 15px;
     }
 
     .gContainerTitulo h1 {
-        font-size: 28px;
+        font-size: 20px;
     }
 
     .gContainerForm h2 {

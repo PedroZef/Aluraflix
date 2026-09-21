@@ -4,17 +4,25 @@
   flex-direction: column;
   align-items: center;
   gap: 20px;
-  padding: 25px;
-  height: 60vh;
+  padding: 25px clamp(16px, 4vw, 40px);
+  min-height: 60vh;
+  box-sizing: border-box;
 }
 
+.containerVideo h1,
 .container h1 {
   font-family: var(--fonte);
-  font-size: 42px;
+  font-size: 32px;
   color: var(--azul);
+  text-align: center;
 }
 
 .iframeContainer {
-  height: 100%;
-  width: 45%;
+  width: min(900px, 92vw);
+  max-width: 100%;
+  aspect-ratio: 16 / 9;
+  height: auto;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
 }
